@@ -1,5 +1,5 @@
 <template>
-    <div class="test">
+    <div class="benchmark">
         <h1>{{ header }}</h1>
         <input type="text" v-model="datasize" placeholder="Enter datasize" />
         <b-button v-on:click="getData()" variant="primary">Fetch</b-button>
@@ -26,10 +26,10 @@
 <script>
    
     export default {
-        name: 'test',
+        name: 'benchmark',
         data () {
             return {
-                header: "Demo app",
+                header: "Benchmark App for vuejs",
                 datasize: 1,
                 items: []
             }
