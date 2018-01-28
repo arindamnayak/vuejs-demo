@@ -19,3 +19,13 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+# TODO
+- [x] Basic data fetch and show in cards (bootstrap format)
+- [x] On clicking more , expand text and toggle behavior
+- [ ] Add select option for dataset size
+- [ ] Add toggle to show/hide image
+- [ ] Add search functionality
+- [ ] Add select option for dataset size
+- [ ] Toggle list / card view
+- [ ] Change bootstrap css to fill card from left to right instead of top to bottom

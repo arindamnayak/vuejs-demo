@@ -4,13 +4,12 @@
         <input type="text" v-model="datasize" placeholder="Enter datasize" />
         <b-button v-on:click="getData()" variant="primary">Fetch</b-button>
         <br />
-        <div style="margin:10px" class="row" >
-          <b-card-group deck >
+        <div style="margin:5px">
+          <b-card-group columns >
             <b-card v-for="item in items" :img-src="item.imgSrc + '?random' + Math.random()"    
                     img-alt="Image"
                     img-top
-                    :title="item.email"
-                    style="max-width: 20rem;">
+                    :title="item.email">
                 
                 <p class="card-text">
                     <p v-bind:class="{more: item.more}">
