@@ -9,7 +9,8 @@
             <b-card v-for="item in items" :img-src="item.imgSrc + '?random' + Math.random()"    
                     img-alt="Image"
                     img-top
-                    :title="item.email">
+                    :title="item.email"
+                    :key="item.id">
                 
                 <p class="card-text">
                     <p v-bind:class="{more: item.more}">
@@ -30,7 +31,7 @@
         data () {
             return {
                 header: "Benchmark app for vuejs",
-                datasize: 1,
+                datasize: 10,
                 items: []
             }
         },
