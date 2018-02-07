@@ -23,8 +23,8 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 # TODO
 - [x] Basic data fetch and show in cards (bootstrap format)
 - [x] On clicking more , expand text and toggle behavior
-- [ ] Add select option for dataset size
-- [ ] Add toggle to show/hide image
-- [ ] Add search functionality
-- [ ] Toggle list / card view
+- [x] Add select option for dataset size
+- [x] Add toggle to show/hide image
+- [x] Add search functionality
+- [x] Toggle list / card view
 - [ ] Change bootstrap css to fill card from left to right instead of top to bottom
