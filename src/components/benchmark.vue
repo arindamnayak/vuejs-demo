@@ -43,7 +43,6 @@
                     img-top
                     :title="item.email"
                     :key="item.id">
-                    <p class="card-text">
                     <p v-bind:class="{more: item.more}">
                         {{ item.details }}
                     </p>
@@ -59,7 +58,6 @@
             </template>
             <template v-if="!image">
                 <b-card v-for="item in filterData" :title="item.email" :key="item.id">
-                    <p class="card-text">
                     <p v-bind:class="{more: item.more}">
                         {{ item.details }}
                     </p>
@@ -79,7 +77,7 @@
 </template>
 
 <script>
-   
+    import searchdata from "../assets/searchdata.json"
     export default {
         name: 'benchmark',
         data () {
@@ -94,20 +92,12 @@
             }
         },
         mounted() {
-            this.$http.get("static/data/data-" + this.datasize + ".json").then(result => {
-                this.items = this.addDefaultValues(result.body);
-            }, error => {
-                console.error(error);
-            });
+            this.items = this.addDefaultValues(searchdata.slice(0,this.datasize-1));
         },
         methods: {
             showMore: function(data){
                 this.datasize = data.path[0].innerText;
-                this.$http.get("static/data/data-" + this.datasize + ".json").then(result => {
-                    this.items = this.addDefaultValues(result.body);
-                }, error => {
-                    console.error(error);
-                });
+                this.items = this.addDefaultValues(searchdata.slice(0,this.datasize-1));
             },
             addDefaultValues: function(data){
                 for(var i=0;i<data.length;i++){

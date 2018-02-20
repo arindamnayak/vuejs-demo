@@ -1,0 +1,33 @@
+vuejs
+-----
+adoption
+	developer tool - 5
+	learning curve = 5
+	testability = 4
+comm support
+	q & a in stackoverflow = 3
+	open source plugins = 3
+	no of issues open/closed in git = 4
+Cost
+	free = 1
+
+..................
+Feature comparison
+	Routing = 5
+	data binding = 5
+	template support = 5
+	mode/data management = ?
+	Dep. injection = ?
+	Ajax Support = 5
+	WebSocket = 4
+	History management = 5
+	Form Validation = 4
+	Server Side Rendering = 4
+	Mobile Support = 4
+	Visual Designer Tools = 3
+	Reusable Components Development = 4
+	Deep Linking ?
+	I18N = 5
+	Source code Available = 5
+	Logging ?
+	SEO ?
