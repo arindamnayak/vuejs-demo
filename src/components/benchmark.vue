@@ -43,31 +43,20 @@
                     img-top
                     :title="item.email"
                     :key="item.id">
-                    <p v-bind:class="{more: item.more}">
-                        {{ item.details }}
-                    </p>
                 </p>
-                <p class="card-text">
-                    <p v-bind:class="{more: item.more}">
-                        {{ item.details }}
-                    </p>
-                </p>
-                <button @click="item.more = !item.more" class="btn btn-primary"> {{ item.more ? 'More' : 'Less' }} </button>
-                
+                <b-collapse :id="item.id">
+                    <p class="card-text"> {{ item.details }} </p>
+                 </b-collapse>
+                 <b-btn  v-b-toggle="item.id" class="m-1" variant="primary">More</b-btn>
                 </b-card>
             </template>
-            <template v-if="!image">
+            <template v-else>
                 <b-card v-for="item in filterData" :title="item.email" :key="item.id">
-                    <p v-bind:class="{more: item.more}">
-                        {{ item.details }}
-                    </p>
-                </p>
-                <p class="card-text">
-                    <p v-bind:class="{more: item.more}">
-                        {{ item.details }}
-                    </p>
-                </p>
-                <button @click="item.more = !item.more" class="btn btn-primary"> {{ item.more ? 'More' : 'Less' }} </button>
+                </p>                 
+                 <b-collapse :id="item.id">
+                    <p class="card-text"> {{ item.details }} </p>
+                 </b-collapse>
+                 <b-btn  v-b-toggle="item.id" class="m-1" variant="primary">More</b-btn>
                 
                 </b-card>
             </template>
@@ -92,18 +81,12 @@
             }
         },
         mounted() {
-            this.items = this.addDefaultValues(searchdata.slice(0,this.datasize-1));
+            this.items = searchdata.slice(0,this.datasize-1);
         },
         methods: {
             showMore: function(data){
                 this.datasize = data.path[0].innerText;
-                this.items = this.addDefaultValues(searchdata.slice(0,this.datasize-1));
-            },
-            addDefaultValues: function(data){
-                for(var i=0;i<data.length;i++){
-                    data[i]["more"] = true;
-                }
-                return data;
+                this.items = searchdata.slice(0,this.datasize-1);
             },
             setImage: function(data){
                 this.image = data.path[0].innerText == "yes" ? true : false;

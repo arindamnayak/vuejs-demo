@@ -3,7 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 //import BootstrapVue from "bootstrap-vue"
-import { Card, Navbar, FormInput, Dropdown } from 'bootstrap-vue/es/components';
+import { Card, Navbar, FormInput, Dropdown, Collapse, Button } from 'bootstrap-vue/es/components';
+import vBToggle from 'bootstrap-vue/es/directives/toggle/toggle';
 import VueResource from 'vue-resource'
 import router from './router'
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -16,7 +17,10 @@ Vue.use(Card)
 Vue.use(Navbar)
 Vue.use(FormInput)
 Vue.use(Dropdown)
+Vue.use(Collapse)
+Vue.use(Button)
 Vue.config.productionTip = false
+Vue.directive('b-toggle', vBToggle);
 
 /* eslint-disable no-new */
 new Vue({
