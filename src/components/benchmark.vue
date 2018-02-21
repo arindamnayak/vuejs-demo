@@ -43,20 +43,26 @@
                     img-top
                     :title="item.email"
                     :key="item.id">
-                </p>
-                <b-collapse :id="item.id">
-                    <p class="card-text"> {{ item.details }} </p>
-                 </b-collapse>
-                 <b-btn  v-b-toggle="item.id" class="m-1" variant="primary">More</b-btn>
+                
+                    <b-collapse :id="item.id">
+                        <p class="card-text"> {{ item.details }} </p>
+                    </b-collapse>
+                    <b-btn  v-b-toggle="item.id" class="m-1" variant="primary">
+                        <span class="when-opened">Less</span>
+                        <span class="when-closed">More</span>
+                    </b-btn>
                 </b-card>
             </template>
             <template v-else>
                 <b-card v-for="item in filterData" :title="item.email" :key="item.id">
-                </p>                 
-                 <b-collapse :id="item.id">
-                    <p class="card-text"> {{ item.details }} </p>
-                 </b-collapse>
-                 <b-btn  v-b-toggle="item.id" class="m-1" variant="primary">More</b-btn>
+                                
+                     <b-collapse :id="item.id">
+                        <p class="card-text"> {{ item.details }} </p>
+                     </b-collapse>
+                     <b-btn  v-b-toggle="item.id" class="m-1" variant="primary">
+                        <span class="when-opened">Less</span>
+                        <span class="when-closed">More</span>
+                    </b-btn>
                 
                 </b-card>
             </template>
@@ -111,14 +117,10 @@
     h1, h2 {
         font-weight: normal;
     }
-    .more {
-      text-align: center;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin: 0px 30px;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
+    
+    .collapsed > .when-opened,
+    :not(.collapsed) > .when-closed {
+      display: none;
     }
     
 </style>

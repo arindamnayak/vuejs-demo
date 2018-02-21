@@ -1,4 +1,4 @@
-# sample_vue
+# Benchmark vue
 
 > A Vue.js project
 
