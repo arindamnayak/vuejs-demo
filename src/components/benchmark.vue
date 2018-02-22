@@ -72,7 +72,7 @@
 </template>
 
 <script>
-    import searchdata from "../assets/searchdata.json"
+    
     export default {
         name: 'benchmark',
         data () {
@@ -87,12 +87,20 @@
             }
         },
         mounted() {
-            this.items = searchdata.slice(0,this.datasize-1);
+            this.$http.get("static/data/data-2500.json").then(result => {
+                this.items = result.body.slice(0,this.datasize-1);
+            }, error => {
+                console.error(error);
+            });
         },
         methods: {
             showMore: function(data){
                 this.datasize = data.path[0].innerText;
-                this.items = searchdata.slice(0,this.datasize-1);
+                this.$http.get("static/data/data-2500.json").then(result => {
+                   this.items = result.body.slice(0,this.datasize-1);
+                }, error => {
+                   console.error(error);
+                });
             },
             setImage: function(data){
                 this.image = data.path[0].innerText == "yes" ? true : false;
