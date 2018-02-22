@@ -1,0 +1,31 @@
+Performance
+------------------
+hard cache reload
+10 to 100 - 100
+10 to 200 - 200
+10 to 500 - 500
+10 to 1000 - 1000 (9587 (Total) - 3048 (idle) = total time to load dataset
+10 to 2500 - 2500
+---------------------
+4300/5 = 820
+820 < 500 = 5
+500 - 100
+check average memory within a range and give rating
+
+Memory 
+---------------
+100 -  
+500 - 
+1000 - 71MB 
+2500
+
+- for baseline of 10 dataset, say string memory is X MB, then reduce memory for each dataset  - X MB
+- then we'll have memory for each of dataset, take average, compare with angular/react, then predict the rating
+-----
+
+Memory leak
+-------------------
+10 , 1000, 10 - check memory
+do 5 iteration( 10 -> 1000 -> 10) - 
+diff of mem will be mem leak
+take average of mem leak, and give rating respective to a framework
