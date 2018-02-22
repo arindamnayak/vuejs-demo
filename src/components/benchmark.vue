@@ -72,7 +72,7 @@
 </template>
 
 <script>
-    
+    export const searchdata = require('../../static/data/data-2500.json');
     export default {
         name: 'benchmark',
         data () {
@@ -87,20 +87,15 @@
             }
         },
         mounted() {
-            this.$http.get("static/data/data-2500.json").then(result => {
-                this.items = result.body.splice(0,this.datasize);
-            }, error => {
-                console.error(error);
-            });
+            this.items = searchdata.slice(0,this.datasize);
         },
         methods: {
             showMore: function(data){
                 this.datasize = data.path[0].innerText;
-                this.$http.get("static/data/data-2500.json").then(result => {
-                   this.items = result.body.splice(0,this.datasize);
-                }, error => {
-                   console.error(error);
-                });
+                if(this.datasize == 2500)
+                    this.items = searchdata;
+                else
+                    this.items = searchdata.slice(0,this.datasize);
             },
             setImage: function(data){
                 this.image = data.path[0].innerText == "yes" ? true : false;
