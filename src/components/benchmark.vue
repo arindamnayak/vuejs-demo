@@ -19,9 +19,9 @@
 
                   <b-nav-item-dropdown text="Dataset" right @click.native="showMore">
                     <b-dropdown-item href="#">10</b-dropdown-item>
-                    <b-dropdown-item href="#">50</b-dropdown-item>
                     <b-dropdown-item href="#">100</b-dropdown-item>
                     <b-dropdown-item href="#">200</b-dropdown-item>
+                    <b-dropdown-item href="#">500</b-dropdown-item>
                     <b-dropdown-item href="#">1000</b-dropdown-item>
                     <b-dropdown-item href="#">2500</b-dropdown-item>
                   </b-nav-item-dropdown>
@@ -72,7 +72,7 @@
 </template>
 
 <script>
-    
+    export const searchdata = require('../../static/data/data-2500.json');
     export default {
         name: 'benchmark',
         data () {
@@ -87,20 +87,17 @@
             }
         },
         mounted() {
-            this.$http.get("static/data/data-2500.json").then(result => {
-                this.items = result.body.slice(0,this.datasize-1);
-            }, error => {
-                console.error(error);
-            });
+
+            this.items = searchdata.slice(0,this.datasize);
         },
         methods: {
             showMore: function(data){
                 this.datasize = data.path[0].innerText;
-                this.$http.get("static/data/data-2500.json").then(result => {
-                   this.items = result.body.slice(0,this.datasize-1);
-                }, error => {
-                   console.error(error);
-                });
+               
+                if(this.datasize == 2500)
+                    this.items = searchdata;
+                else
+                    this.items = searchdata.slice(0,this.datasize);
             },
             setImage: function(data){
                 this.image = data.path[0].innerText == "yes" ? true : false;
