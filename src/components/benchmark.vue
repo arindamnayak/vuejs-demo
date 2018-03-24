@@ -75,7 +75,6 @@
         methods: {
             showMore: function(data){
                 this.datasize = data.path[0].innerText;
-               
                 if(this.datasize == 2500)
                     this.items = searchdata;
                 else
