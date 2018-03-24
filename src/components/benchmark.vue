@@ -37,33 +37,16 @@
 
         <div style="margin:5px">
           <b-card-group columns >
-            <template v-if="image">
-                <b-card v-for="item in filterData" :img-src="item.imgSrc + '?random' + Math.random()"     
+            <template>
+                <b-card v-for="(item,index) in filterData" :img-src="image? item.imgSrc + '?random' + Math.random() : '' "     
                     img-alt="Image"
                     img-top
                     :title="item.email"
                     :key="item.id">
-                
-                    <b-collapse :id="item.id">
-                        <p class="card-text"> {{ item.details }} </p>
-                    </b-collapse>
-                    <b-btn  v-b-toggle="item.id" class="m-1" variant="primary">
-                        <span class="when-opened">Less</span>
-                        <span class="when-closed">More</span>
-                    </b-btn>
-                </b-card>
-            </template>
-            <template v-else>
-                <b-card v-for="item in filterData" :title="item.email" :key="item.id">
-                                
-                     <b-collapse :id="item.id">
-                        <p class="card-text"> {{ item.details }} </p>
-                     </b-collapse>
-                     <b-btn  v-b-toggle="item.id" class="m-1" variant="primary">
-                        <span class="when-opened">Less</span>
-                        <span class="when-closed">More</span>
-                    </b-btn>
-                
+                    <button v-on:click="showDetail" class="btn btn-primary">More</button>
+                    <p class="card-text hidden" > {{ item.details }} </p>
+                    
+                    
                 </b-card>
             </template>
           </b-card-group>
@@ -87,7 +70,6 @@
             }
         },
         mounted() {
-
             this.items = searchdata.slice(0,this.datasize);
         },
         methods: {
@@ -101,6 +83,19 @@
             },
             setImage: function(data){
                 this.image = data.path[0].innerText == "yes" ? true : false;
+            },
+            showDetail: function(event){
+                var element = event.path[0];
+                var nextelement = element.nextElementSibling;
+                var btnText = element.innerText;
+                if(btnText == "More"){
+                    nextelement.className = "card-text shown";
+                    element.innerText = "Less";
+                }
+                else{
+                    nextelement.className = "card-text hidden";
+                    element.innerText = "More";
+                }
             }
         },
         computed:
@@ -122,10 +117,10 @@
     h1, h2 {
         font-weight: normal;
     }
-    
-    .collapsed > .when-opened,
-    :not(.collapsed) > .when-closed {
-      display: none;
+    .hidden{
+        display:none;
     }
-    
+    .shown{
+        display:block;
+    }
 </style>

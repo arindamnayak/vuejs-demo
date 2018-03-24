@@ -27,4 +27,3 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 - [x] Add toggle to show/hide image
 - [x] Add search functionality
 - [x] Toggle list / card view
-- [ ] Change bootstrap css to fill card from left to right instead of top to bottom
