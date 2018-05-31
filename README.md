@@ -1,5 +1,7 @@
 # Benchmark vue
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/arindamnayak/vuejs-demo.svg)](https://greenkeeper.io/)
+
 > A Vue.js project
 
 ## Build Setup
